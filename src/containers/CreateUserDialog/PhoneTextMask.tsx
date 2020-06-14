@@ -39,20 +39,20 @@ function TextMaskCustom(props) {
   );
 }
 
-const TextInput = () => {
-  return (
-    <FormControl>
-      <InputLabel htmlFor="formatted-text-mask-input">
-        react-text-mask
-      </InputLabel>
-      <Input
-        value={val}
-        onChange={handleChange}
-        name="textmask"
-        id="formatted-text-mask-input"
-        inputComponent={TextMaskCustom}
-      />
-    </FormControl>
-  );
-};
+// const TextInput = () => {
+//   return (
+//     <FormControl>
+//       <InputLabel htmlFor="formatted-text-mask-input">
+//         react-text-mask
+//       </InputLabel>
+//       <Input
+//         value={value}
+//         onChange={handleChange}
+//         name="textmask"
+//         id="formatted-text-mask-input"
+//         inputComponent={TextMaskCustom}
+//       />
+//     </FormControl>
+//   );
+// };
 export default TextMaskCustom;
