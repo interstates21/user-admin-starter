@@ -7,13 +7,11 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 
-import { KeyboardDatePicker } from "@material-ui/pickers";
 import { v4 as uuidv4 } from "uuid";
 
 export default function FormDialog({ open, setOpen, onSubmit }) {
   const [firstName, setfirstName] = useState("");
   const [lastName, setlastName] = useState("");
-  const [selectedDate, setSelectedDate] = useState<Date | null>("");
   const [phone, setphone] = useState("");
 
   const handleClose = () => {
@@ -24,7 +22,6 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
     if (open.targetUser) {
       setfirstName(open.targetUser.firstName);
       setlastName(open.targetUser.lastName);
-      setSelectedDate(open.targetUser.date);
       setphone(open.targetUser.phone);
     }
   }, [open]);
@@ -34,7 +31,6 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
       id: uuidv4(),
       firstName,
       lastName,
-      date: selectedDate,
       phone
     };
 
@@ -54,7 +50,6 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
   };
 
   const handleDateChange = (date: Date | null) => {
-    setSelectedDate(date);
   };
 
   return (
@@ -91,7 +86,7 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
           onChange={handleChangeLastName}
           fullWidth
         />
-        <KeyboardDatePicker
+        {/* <KeyboardDatePicker
           disableToolbar
           style={{ width: "100%" }}
           variant="inline"
@@ -104,7 +99,7 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
           KeyboardButtonProps={{
             "aria-label": "change date"
           }}
-        />
+        /> */}
         <TextField
           autoFocus
           margin="dense"
@@ -114,6 +109,7 @@ export default function FormDialog({ open, setOpen, onSubmit }) {
           value={phone}
           onChange={handleChangePhone}
           fullWidth
+
         />
       </DialogContent>
       <DialogActions>
